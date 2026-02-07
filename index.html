@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter 4 - Cryptography Group Work</title>
+  <title>DM_Project_Team - Cryptography</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <nav class="nav">
     <div class="brand">DM_Project_Team</div>
+
     <div class="links">
       <a href="#classical">Classical</a>
       <a href="#rsa">RSA</a>
       <a href="#demo">Demo</a>
       <a href="#interesting">Interesting</a>
     </div>
+
+    <!-- LIGHT / DARK BUTTON -->
+    <button id="themeToggle" class="themeBtn" type="button">
+      🌙 Dark
+    </button>
   </nav>
 
+  <!-- HERO -->
   <header class="hero">
     <h1>Chapter 4: Cryptography</h1>
     <p>Group Work: Classical Cryptography & RSA Cryptography</p>
@@ -28,66 +37,61 @@
   </header>
 
   <main class="container">
-    <!-- Classical Cryptography -->
+
+    <!-- CLASSICAL -->
     <section id="classical" class="card">
       <h2>1) Classical Cryptography</h2>
       <p class="muted">
-        Classical cryptography uses simple methods to hide messages, such as substitution
-        and shifting letters. It is easy to learn and helps us understand modern cryptography.
+        Classical cryptography hides messages using simple techniques such as letter shifting
+        and substitution.
       </p>
 
-      <h3>Mini Demo: Caesar Cipher</h3>
-      <p class="muted">Type a message, choose shift (0–25), then encrypt or decrypt.</p>
+      <h3>Demo: Caesar Cipher</h3>
 
       <div class="grid">
         <div>
-          <label for="plain">Plaintext</label>
+          <label>Plaintext</label>
           <textarea id="plain" placeholder="Type your message..."></textarea>
         </div>
 
         <div>
-          <label for="shift">Shift (0-25)</label>
+          <label>Shift (0–25)</label>
           <input id="shift" type="number" min="0" max="25" value="3" />
 
           <button id="encryptBtn">Encrypt</button>
           <button id="decryptBtn" class="ghost">Decrypt</button>
 
-          <div class="hint">
-            Example: HELLO (shift 3) → KHOOR
-          </div>
+          <p class="hint">Example: HELLO → KHOOR (shift 3)</p>
         </div>
 
         <div>
-          <label for="result">Result</label>
-          <textarea id="result" readonly placeholder="Output appears here..."></textarea>
+          <label>Result</label>
+          <textarea id="result" readonly></textarea>
         </div>
       </div>
     </section>
 
-    <!-- RSA Cryptography -->
+    <!-- RSA -->
     <section id="rsa" class="card">
       <h2>2) RSA Cryptography</h2>
       <p class="muted">
-        RSA is an <b>asymmetric</b> cryptography algorithm. It uses two keys:
-        <b>Public key</b> (encrypt) and <b>Private key</b> (decrypt).
+        RSA is an asymmetric encryption algorithm using public and private keys.
       </p>
 
-      <h3>RSA Key Idea (Simple Steps)</h3>
       <ol>
-        <li>Choose two prime numbers <b>p</b> and <b>q</b></li>
-        <li>Compute <b>n = p × q</b></li>
-        <li>Compute <b>φ(n) = (p − 1)(q − 1)</b></li>
-        <li>Choose <b>e</b> such that gcd(e, φ(n)) = 1</li>
-        <li>Find <b>d</b> such that (e × d) mod φ(n) = 1</li>
+        <li>Choose two prime numbers</li>
+        <li>Generate public & private keys</li>
+        <li>Encrypt with public key</li>
+        <li>Decrypt with private key</li>
       </ol>
 
       <div class="note">
-        In this project, we demonstrate <b>Classical Cryptography</b> using Caesar Cipher on the website.
-        RSA is explained with history, theory, and real-world applications.
+        In this project, RSA is explained conceptually while Classical Cryptography
+        is demonstrated practically.
       </div>
     </section>
 
-    <!-- Demo Link (Preset like GitHub Pages) -->
+    <!-- DEMO LINK -->
     <section id="demo" class="card">
       <h2>Demo Link</h2>
       <p class="muted">Online demo hosted on GitHub Pages.</p>
@@ -96,23 +100,16 @@
         <input
           id="demoLink"
           type="text"
-          value="https://YOURUSERNAME.github.io/dm-project-team/"
+          value="https://github.com/HiroSanjino/dm-project-team"
           readonly
         />
         <button id="openDemoBtn">Open Demo</button>
       </div>
-
-      <p class="small">
-        🔁 Replace <b>YOURUSERNAME</b> and the repo name with your real GitHub Pages link.
-      </p>
     </section>
 
-    <!-- Interesting -->
+    <!-- INTERESTING -->
     <section id="interesting" class="card">
       <h2>Interesting</h2>
-      <p class="muted">
-        This section highlights key points about cryptography: history, theory, and applications.
-      </p>
 
       <div class="tabs">
         <button class="tab active" data-tab="history">History</button>
@@ -121,36 +118,31 @@
       </div>
 
       <div class="tabContent active" id="history">
-        <h3>History</h3>
         <ul>
-          <li>Classical ciphers were used in wars and secret communication.</li>
-          <li>Caesar Cipher is one of the oldest known substitution ciphers.</li>
-          <li>RSA was published in 1977 and became a base for internet security.</li>
+          <li>Caesar Cipher is one of the oldest encryption methods.</li>
+          <li>RSA was invented in 1977.</li>
         </ul>
       </div>
 
       <div class="tabContent" id="theory">
-        <h3>Theory</h3>
         <ul>
-          <li>Classical crypto often uses the <b>same key</b> for encrypt and decrypt.</li>
-          <li>RSA uses <b>two keys</b>: public key and private key (asymmetric).</li>
-          <li>RSA security relies on the difficulty of factoring large numbers.</li>
+          <li>Classical cryptography uses one key.</li>
+          <li>RSA uses two keys.</li>
         </ul>
       </div>
 
       <div class="tabContent" id="application">
-        <h3>Application</h3>
         <ul>
-          <li>HTTPS websites use public-key cryptography for secure connections.</li>
-          <li>Online banking and digital payments use encryption.</li>
-          <li>Digital signatures help verify identity and prevent tampering.</li>
+          <li>Used in HTTPS and secure websites.</li>
+          <li>Used in online banking.</li>
         </ul>
       </div>
     </section>
 
     <footer class="footer">
-      <p>© DM_Project_Team — Chapter 4 Cryptography Group Work</p>
+      © DM_Project_Team - Cryptography Project
     </footer>
+
   </main>
 
   <script src="script.js"></script>
